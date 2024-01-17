@@ -13,5 +13,6 @@ jobs:
       with:
         xcode-version: '15.2-beta'
     - run: |
-        which xcodebuild
+        xcode-select -print-path
+    - run: |
         xcodebuild -version
