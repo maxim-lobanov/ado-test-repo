@@ -1,0 +1,16 @@
+name: MacOS
+on:
+  push:
+    paths:
+      - '.github/workflows/macos.yml'
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: macos-13
+    steps:
+    - uses: maxim-lobanov/setup-xcode@v1
+      with:
+        xcode-version: '15.2-beta'
+    - run: |
+        xcodebuild -version
