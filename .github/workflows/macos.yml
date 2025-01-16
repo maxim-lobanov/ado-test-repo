@@ -5,8 +5,8 @@ on:
 
 jobs:
   build:
-    # runs-on: helloworld-linux-latest
-    runs-on: ubuntu-24.04-arm
+    runs-on: ubuntu-latest
+    # runs-on: ubuntu-24.04-arm
     steps:
       - run: |
           printenv | sort
