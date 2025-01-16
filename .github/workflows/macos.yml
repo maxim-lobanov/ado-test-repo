@@ -5,19 +5,26 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
-    # runs-on: ubuntu-24.04-arm
+    # runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04-arm
     steps:
       - run: |
           printenv | sort
       - run: |
-          id -u runner
+          from="/home/runneradmin"
+          to='$HOME'
+          sed -i "s|\$from|$to|g" /etc/environment
       - run: |
-          ls -la /opt/
+          cat /etc/environment
+      - run: |
+          homeDir="/home/$RUNNER_USER"
+          sed -i "s|\$HOME|$homeDir|g" /etc/environment
+
+          userId=$(id -u $RUNNER_USER)
+          echo "User ID: $userId"
+          loginctl enable-linger $userId
+      - run: |
+         cat /etc/environment
       - run: |
           rm -rf /opt/post-generation
           rm -rf /opt/post-generation
-      - run: |
-          ls -la /opt/
-      - run: |
-          cat /etc/passwd
