@@ -1,18 +1,13 @@
-name: MacOS
+name: Linux
 on:
   push:
-    paths:
-      - '.github/workflows/macos.yml'
   workflow_dispatch:
 
 jobs:
   build:
-    runs-on: macos-13
+    # runs-on: helloworld-linux-latest
+    runs-on: ubuntu-24.04-arm
     steps:
-    - uses: maxim-lobanov/setup-xcode@v1
-      with:
-        xcode-version: '15.2-beta'
-    - run: |
-        xcode-select -print-path
-    - run: |
-        xcodebuild -version
+      - run: |
+          printenv | sort
+      
