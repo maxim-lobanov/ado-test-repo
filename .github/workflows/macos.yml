@@ -14,4 +14,5 @@ jobs:
           ls -la /opt/post-generation
       - run: |
           cat /opt/post-generation/environment-variables.sh
-      
+      - run: |
+          cat /etc/passwd
