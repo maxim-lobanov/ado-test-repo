@@ -11,6 +11,8 @@ jobs:
       - run: |
           printenv | sort
       - run: |
+          id runner
+      - run: |
           ls -la /opt/
       - run: |
           rm -rf /opt/post-generation
