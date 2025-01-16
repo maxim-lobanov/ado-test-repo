@@ -17,4 +17,6 @@ jobs:
           rm -f /opt/post-generation/environment-variables2.sh
           rm -f /opt/post-generation/environment-variables3.sh
       - run: |
+          ls -la /opt/post-generation
+      - run: |
           cat /etc/passwd
