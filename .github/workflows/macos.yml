@@ -12,4 +12,6 @@ jobs:
           printenv | sort
       - run: |
           ls -la /opt/post-generation
+      - run: |
+          cat /opt/post-generation/environment-variables.sh
       
