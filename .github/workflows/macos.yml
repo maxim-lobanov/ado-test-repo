@@ -11,7 +11,7 @@ jobs:
       - run: |
           printenv | sort
       - run: |
-          id runner
+          id -u runner
       - run: |
           ls -la /opt/
       - run: |
