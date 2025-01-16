@@ -11,11 +11,11 @@ jobs:
       - run: |
           printenv | sort
       - run: |
-          ls -la /opt/post-generation
+          ls -la /opt/
       - run: |
           rm -rf /opt/post-generation
-          rm -rf /opt/post-generation2
+          rm -rf /opt/post-generation
       - run: |
-          ls -la /opt/post-generation
+          ls -la /opt/
       - run: |
           cat /etc/passwd
