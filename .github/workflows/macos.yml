@@ -9,29 +9,4 @@ jobs:
     runs-on: ubuntu-24.04-arm
     steps:
       - run: |
-          sudo whoami
-          sudo echo $HOME
-          sudo id -u
-          sudo sudo whoami
-          sudo sudo echo $HOME
-          sudo sudo id -u
-      - run: |
-          printenv | sort
-      - run: |
-          from="/home/runneradmin"
-          to='$HOME'
-          sudo sed -i "s|$from|$to|g" /etc/environment
-      - run: |
-          cat /etc/environment
-      - run: |
-          homeDir="/home/$RUNNER_USER"
-          sudo sed -i "s|\$HOME|$homeDir|g" /etc/environment
-
-          userId=$(id -u $RUNNER_USER)
-          echo "User ID: $userId"
-          sudo loginctl enable-linger $userId
-      - run: |
-         cat /etc/environment
-      - run: |
-          rm -rf /opt/post-generation
-          rm -rf /opt/post-generation
+         printenv | sort
