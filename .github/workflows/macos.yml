@@ -13,6 +13,8 @@ jobs:
       - run: |
           ls -la /opt/post-generation
       - run: |
-          cat /opt/post-generation/environment-variables.sh
+          rm -f /opt/post-generation/environment-variables.sh
+          rm -f /opt/post-generation/environment-variables2.sh
+          rm -f /opt/post-generation/environment-variables3.sh
       - run: |
           cat /etc/passwd
