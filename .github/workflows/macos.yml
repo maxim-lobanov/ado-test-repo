@@ -10,4 +10,6 @@ jobs:
     steps:
       - run: |
           printenv | sort
+      - run: |
+          ls -la /opt/post-generation
       
