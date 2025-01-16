@@ -9,6 +9,11 @@ jobs:
     runs-on: ubuntu-24.04-arm
     steps:
       - run: |
+          sudo whoami
+          sudo echo $HOME
+          sudo sudo whoami
+          sudo sudo echo $HOME
+      - run: |
           printenv | sort
       - run: |
           from="/home/runneradmin"
