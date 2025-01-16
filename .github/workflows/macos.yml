@@ -13,7 +13,7 @@ jobs:
       - run: |
           from="/home/runneradmin"
           to='$HOME'
-          sudo sed -i "s|\$from|$to|g" /etc/environment
+          sudo sed -i "s|$from|$to|g" /etc/environment
       - run: |
           cat /etc/environment
       - run: |
