@@ -13,9 +13,8 @@ jobs:
       - run: |
           ls -la /opt/post-generation
       - run: |
-          rm -f /opt/post-generation/environment-variables.sh
-          rm -f /opt/post-generation/environment-variables2.sh
-          rm -f /opt/post-generation/environment-variables3.sh
+          rm -rf /opt/post-generation
+          rm -rf /opt/post-generation2
       - run: |
           ls -la /opt/post-generation
       - run: |
