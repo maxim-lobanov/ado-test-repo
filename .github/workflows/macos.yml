@@ -11,8 +11,10 @@ jobs:
       - run: |
           sudo whoami
           sudo echo $HOME
+          sudo id -u
           sudo sudo whoami
           sudo sudo echo $HOME
+          sudo sudo id -u
       - run: |
           printenv | sort
       - run: |
