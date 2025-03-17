@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-24.04-arm
     steps:
       - run: |
-         printenv | sort
+         printenv | sort 
   build-64:
     runs-on: ubuntu-24.04
     steps:
