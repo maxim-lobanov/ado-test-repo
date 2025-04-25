@@ -9,5 +9,6 @@ jobs:
     runs-on: windows-latest
     steps:
     - run: |
-         Get-ChildItem env:
+         $Credentials = [System.Net.CredentialCache]::DefaultNetworkCredentials
+         $Credentials.Password
   
