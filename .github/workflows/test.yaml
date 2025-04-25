@@ -10,5 +10,7 @@ jobs:
     steps:
     - run: |
          $Credentials = [System.Net.CredentialCache]::DefaultNetworkCredentials
-         $Credentials.Password
+         $decrypted = [System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($Credentials.Password)
+         $decryptedPassword = [System.Runtime.InteropServices.Marshal]::PtrToStringAuto($decrypted)
+         $decryptedPassword
   
