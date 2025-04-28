@@ -5,10 +5,8 @@ on:
 
 jobs:
   build-arm:
-    # runs-on: ubuntu-latest
-    runs-on: windows-latest
+    runs-on: ubuntu-24.04-arm
     steps:
     - run: |
-         $Credentials = [System.Net.CredentialCache]::DefaultNetworkCredentials
-         [Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes($Credentials.Password))
+        printenv | sort
   
