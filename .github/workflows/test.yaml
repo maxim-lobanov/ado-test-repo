@@ -8,6 +8,5 @@ jobs:
     runs-on: windows-11-arm
     steps:
     - run: |
-        docker info
         docker login
-  
+        docker run hello-world
