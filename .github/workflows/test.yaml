@@ -5,8 +5,17 @@ on:
 
 jobs:
   build-arm:
-    runs-on: windows-11-arm
+    runs-on: ubuntu-latest
     steps:
-    - run: |
-        docker login
-        docker run hello-world
+     - run: |
+          host=$(hostname -f)
+          local_ip=$(host "$host" | head -1 | awk '{ print $NF }')
+          port=12345
+          for addr in localhost 127.0.0.1 "$host" "$local_ip"; do
+            # listen on any interface
+            nc -l 0.0.0.0 "$port" &
+            sleep 1
+            # check if can connect
+            nc -z "$addr" "$port" || echo "Connect to $addr:$port failed"
+            let port++
+          done
