@@ -8,6 +8,6 @@ jobs:
     runs-on: windows-11-arm
     steps:
      - run: |
-         docker run hello-world
+         # docker run hello-world
      - run: |
          & "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\Common7\IDE\devenv.com"
