@@ -12,5 +12,6 @@ jobs:
      - run: |
          Get-ChildItem "OCR-ImageToText-Example"
      - run: |
-         & "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\Common7\IDE\devenv.com" /Build "OCR-ImageToText-Example/OCR-ImageToText-Example.sln"
+         cd "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\Common7\IDE\"
+         devenv "OCR-ImageToText-Example/OCR-ImageToText-Example.sln" /Build
 
