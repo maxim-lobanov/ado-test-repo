@@ -11,3 +11,5 @@ jobs:
          systemctl list-units
      - run: |
          systemctl is-active hosted-compute-agent.service
+     - run: |
+         systemctl is-active hosted-compute-*.service
