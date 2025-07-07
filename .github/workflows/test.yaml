@@ -9,3 +9,5 @@ jobs:
     steps:
      - run: |
          systemctl list-units
+     - run: |
+         systemctl is-active hosted-compute-agent.service
