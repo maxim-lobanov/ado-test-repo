@@ -8,8 +8,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
      - run: |
-         systemctl list-units
+         ls -la /opt/microsoft/mdatp || true
      - run: |
-         systemctl is-active hosted-compute-agent.service
+         systemctl list-units --type=service --all | grep mdatp || true
      - run: |
-         systemctl is-active hosted-compute-*.service
+         systemctl status mdatp.service || true
