@@ -10,7 +10,7 @@ jobs:
      - run: |
          which mdatp || true
          echo "-----"
-         cat /etc/passwd | grep mdatp
+         cat /etc/passwd | grep mdatp || true
          echo "-----"
          systemctl list-units --type=service --all | grep mdatp || true
          echo "-----"
