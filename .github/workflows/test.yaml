@@ -8,8 +8,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
      - run: |
-         ls -la /opt/microsoft/mdatp || true
-     - run: |
+         which mdatp || true
+         echo "-----"
+         cat /etc/passwd | grep mdatp
+         echo "-----"
          systemctl list-units --type=service --all | grep mdatp || true
-     - run: |
+         echo "-----"
          systemctl status mdatp.service || true
+         echo "-----"
+         ls -la /opt/microsoft/mdatp || true
+         
+         
