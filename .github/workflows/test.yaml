@@ -11,6 +11,8 @@ jobs:
          printenv | sort
      - run: |
          hostname
+     - run: |
+         curl http://169.254.169.254/metadata/instance?api-version=2021-02-01
      - name: Test
        timeout-minutes: 300
        run: |
