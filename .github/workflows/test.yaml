@@ -9,8 +9,10 @@ jobs:
     steps:
      - run: |
          printenv | sort
+     - run: |
+         hostname
      - name: Test
-       timeout-minutes: 120
+       timeout-minutes: 300
        run: |
         while true; do
             date -u
