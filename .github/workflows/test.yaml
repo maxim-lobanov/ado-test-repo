@@ -29,6 +29,6 @@ jobs:
       run: |
         .\diskspd\amd64\diskspd.exe -c1G -d60 -r -w50 -t4 -o8 -b64K -Sh C:\testfile.dat
     - name: Run DiskSpd on D drive
-      if: matrix.os != "windows-2025"
+      if: ${{ matrix.os != 'windows-2025' }}
       run: |
         .\diskspd\amd64\diskspd.exe -c1G -d60 -r -w50 -t4 -o8 -b64K -Sh D:\testfile.dat
