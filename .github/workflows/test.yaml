@@ -1,12 +1,34 @@
-name: Test
+name: Performance
 on:
   push:
+    paths:
+      - '.github/workflows/perf.yml'
   workflow_dispatch:
 
+defaults:
+  run:
+    shell: pwsh 
+
 jobs:
-  build-arm:
-    runs-on: windows-2025
+  sudo:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [windows-2025, windows-2022]
     steps:
-     - run: |
-         Get-PSDrive
-     
+    - run: |
+        Get-PSDrive
+    - name: Download DiskSpd
+      run: |
+        $release = Invoke-RestMethod -Uri "https://api.github.com/repos/microsoft/diskspd/releases/latest"
+        $asset = $release.assets | Where-Object { $_.name -match "DiskSpd.*.zip" }
+        Invoke-WebRequest -Uri $asset.browser_download_url -OutFile "diskspd.zip"
+        Expand-Archive -Path "diskspd.zip" -DestinationPath "diskspd"
+      
+    - name: Run DiskSpd on C drive
+      run: |
+        .\diskspd\amd64\diskspd.exe -c1G -d60 -r -w50 -t4 -o8 -b64K -Sh C:\testfile.dat
+    - name: Run DiskSpd on D drive
+      if: matrix.os != "windows-2025"
+      run: |
+        .\diskspd\amd64\diskspd.exe -c1G -d60 -r -w50 -t4 -o8 -b64K -Sh D:\testfile.dat
