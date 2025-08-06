@@ -5,31 +5,8 @@ on:
 
 jobs:
   build-arm:
-    runs-on: ubuntu-latest
+    runs-on: windows-2025
     steps:
      - run: |
-         printenv | sort
-     - run: |
-         hostname
-     - run: |
-         curl -s -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance?api-version=2021-02-01" | jq
-     - name: Test
-       timeout-minutes: 300
-       run: |
-        while true; do
-            date -u
-            which mdatp || true
-            echo "-----"
-            cat /etc/passwd | grep mdatp || true
-            echo "-----"
-            systemctl list-units --type=service --all | grep mdatp || true
-            echo "-----"
-            systemctl status mdatp.service || true
-            echo "-----"
-            ls -la /opt/microsoft/mdatp || true
-            echo "============================================================"
-            sleep 5
-        done
-      
-         
-         
+         Get-PSDrive
+     
