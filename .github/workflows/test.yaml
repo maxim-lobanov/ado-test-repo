@@ -18,6 +18,8 @@ jobs:
     steps:
     - run: |
         Get-PSDrive
+    - run: |
+        Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http://169.254.169.254/metadata/instance?api-version=2021-02-01" | ConvertTo-Json -Depth 64
     - name: Download DiskSpd
       run: |
         $release = Invoke-RestMethod -Uri "https://api.github.com/repos/microsoft/diskspd/releases/latest"
@@ -32,3 +34,5 @@ jobs:
       if: ${{ matrix.os != 'windows-2025' }}
       run: |
         .\diskspd\amd64\diskspd.exe -c1G -d60 -r -w50 -t4 -o8 -b64K -Sh D:\testfile.dat
+    - run: |
+        Start-Sleep -Seconds $(5 * 60)
