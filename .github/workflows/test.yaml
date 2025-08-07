@@ -2,7 +2,7 @@ name: Performance
 on:
   push:
     paths:
-      - '.github/workflows/perf.yml'
+      - '.github/workflows/perf.yaml'
   workflow_dispatch:
 
 defaults:
